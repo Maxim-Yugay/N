@@ -1,0 +1,27 @@
+{% extends 'news_paper/default.html' %}
+
+{% block title %}
+<h2>Posts</h2>
+<hr>
+{% endblock title %}
+
+{% block content %}
+{% if post %}
+    <table>
+        <tr>
+            <td>Заголовок</td>
+            <td>Текст</td>
+            <td>Дата</td>
+        </tr>
+        {% for p in post %}
+        <tr>
+            <td>{{p.title}}</td>
+            <td>{{p.text|truncatechars:20}}</td>
+            <td>{{p.dateCreation}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <td>Нет публикаций</td>
+{% endif %}
+{% endblock content%}
